@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>wordpress &#8211; Thorium232</title>
+	<atom:link href="http://thoriumnext.gptix.io/tag/wordpress/feed/" rel="self" type="application/rss+xml" />
+	<link>http://thoriumnext.gptix.io</link>
+	<description>Just another WordPress site</description>
+	<lastBuildDate>Fri, 13 Sep 2019 18:41:02 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.2.3</generator>
+	<item>
+		<title>Attempts to Migrate WP Single Site to Multisite</title>
+		<link>http://thoriumnext.gptix.io/2019/09/13/migrate-wp-to-multisite/</link>
+				<comments>http://thoriumnext.gptix.io/2019/09/13/migrate-wp-to-multisite/#respond</comments>
+				<pubDate>Fri, 13 Sep 2019 18:09:57 +0000</pubDate>
+		<dc:creator><![CDATA[Jud]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[static site]]></category>
+		<category><![CDATA[wordpress]]></category>
+
+		<guid isPermaLink="false">http://thoriumnext.gptix.io/?p=5</guid>
+				<description><![CDATA[Install WordPress Bse partially on https://www.rosehosting.com/blog/how-to-install-wordpress-with-lamp-stack-on-ubuntu-18-04/ ** copy wordpress zipped wordpress directory into …/html/ $ sudo cp wordpress-5.2.3.zip /var/www/html/ $ cd /var/www/html/ $ unzip ./wordpress-5.2.3.zip ** create mysql db for use by wordpress $ sudo mysql mysql&#62; CREATE DATABASE wortprez; ** create a MySql user to access the database, and grant that user all privileges &#8230; <p class="link-more"><a href="http://thoriumnext.gptix.io/2019/09/13/migrate-wp-to-multisite/" class="more-link">Continue reading<span class="screen-reader-text"> "Attempts to Migrate WP Single Site to Multisite"</span></a></p>]]></description>
+								<content:encoded><![CDATA[
+<ul><li>Install WordPress<br> Bse partially on https://www.rosehosting.com/blog/how-to-install-wordpress-with-lamp-stack-on-ubuntu-18-04/<br> ** copy wordpress zipped wordpress directory into …/html/ </li><li><code>$ sudo cp wordpress-5.2.3.zip /var/www/html/<br> $ cd /var/www/html/<br> $ unzip ./wordpress-5.2.3.zip</code></li></ul>
+
+
+
+<p>** create mysql db for use by wordpress<br> <code> $ sudo mysql<br>  mysql&gt; CREATE DATABASE wortprez;</code></p>
+
+
+
+<p>** create a MySql user to access the database, and grant that user all privileges on the database created.<br>  <code>mysql&gt; GRANT ALL PRIVILEGES ON wortprez.* TO 'wortprez_user'@'localhost' IDENTIFIED BY 'StrongPassword'</code></p>
+
+
+
+<p>** flush privileges<br><code>  mysql&gt; FLUSH PRIVILEGES;</code></p>
+
+
+
+<p>** Done accessing mysql directly.<br>  <code>mysql&gt; exit;</code></p>
+
+
+
+<p>$</p>
+
+
+
+<p>** Run install script<br>  (If a file …/wordpress/wp-config.php exists, browser will report a problem reaching a database. If wp-config.php DOES NOT exist, the install script will run.)</p>
+
+
+
+<p><code>(In browser) localhost/wordpress/wp-admin/install.php</code></p>
+
+
+
+<p>(broswer will forward to http://localhost/wordpress/wp-admin/setup-config.php)</p>
+
+
+
+<p>Press &#8216;Let&#8217;s go!&#8217;</p>
+
+
+
+<figure class="wp-block-embed"><div class="wp-block-embed__wrapper">
+http://localhost/wordpress/wp-admin/setup-config.php?step=1
+</div></figure>
+
+
+
+<p>Fill in the fields with data above.</p>
+
+
+
+<p>Click &#8216;Submit&#8217;</p>
+
+
+
+<p>Browser will probably report that it cannot create the file wp-config.php. This is because the process running the install script does not have authorization to create files in the directory /var/www/html/wordpress/.</p>
+
+
+
+<p>** Create wp-config.php<br>
+ Copy the text proposed by the install script.</p>
+
+
+
+<p><code>$ sudo emacs /var/www/html/wordpress/wp-config.php &amp;</code></p>
+
+
+
+<p>Paste the text.</p>
+
+
+
+<p>Exit editor.</p>
+
+
+
+<p>Click &#8216;Install&#8217;</p>
+
+
+
+<p>Browser will go to http://localhost/wordpress/wp-admin/install.php?language=en_US</p>
+
+
+
+<p>** Enter WordPress account data</p>
+
+
+
+<p>This data is for accessing the WP admin screen.  These are different than the credentials needed to access the MySql database.</p>
+
+
+
+<p>*** Site Title    <br>
+*** Username    <br>
+ &#8220;Usernames can have only alphanumeric characters, spaces, underscores, hyphens, periods, and the @ symbol.&#8221;</p>
+
+
+
+<p>*** Password    <br>
+ (The install process will propose a very strong password. You can use this or enter aa new one.)</p>
+
+
+
+<p>*** Super Strong Password</p>
+
+
+
+<p>&#8221;   Hide<br>
+ Strong<br>
+ Important: You will need this password to log in. Please store it in a secure location.<br>
+ &#8220;<br>
+*** Your Email    <br>
+ Double-check your email address before continuing.</p>
+
+
+
+<p>*** Search Engine Visibility<br>
+     Search Engine Visibility  Discourage search engines from indexing this site<br>
+ It is up to search engines to honor this request.</p>
+
+
+
+<p>*** Click &#8216;Install WordPress&#8217;</p>
+
+
+
+<ul><li>Back up this  brand new site<br>
+** Copy entire structure of, and in, …/wordpress/<br>
+$ sudo cp -ar /var/www/html/wordpress/ /var/www/html/wordpressbak/</li></ul>
+
+
+
+<p>** Dump database to backup directory<br><code> $ sudo mysqldump -YOURDATABASENAME &gt; /var/www/html/wordpressbak/dump.sql</code></p>
+
+
+
+<ul><li>Set up Multisite<br>
+** Make sure Pretty Permalinks work<br>
+** Edit wp-config.php file</li></ul>
+
+
+
+<p>Insert<br> /* Multisite */<br><code> define( 'WP_ALLOW_MULTISITE', true );</code></p>
+
+
+
+<p>right above the text</p>
+
+
+
+<p><code>/* That's all, stop editing! Happy publishing. */</code></p>
+
+
+
+<p>** Log out and log in to WP Admin<br>
+** Tools&gt;Network Setup<br>
+** Enter Network Sites Title<br>
+** Enter Network admin Email Address<br>
+** Follow instructions on http://localhost/wordpress/wp-admin/network.php<br>
+** Log out and Log In<br>
+(You should now see &#8220;My Sites&#8221; on the menu bar in the WordPress Admin page.</p>
+
+
+
+<ul><li>Migrate existing site</li><li>[ ] create new site on multisite</li><li>[ ] create new database in PHPMyMyAdmin</li><li>[ ] undump like<br><code> $ mysql -unewuser -ppassword migration &lt; ~/path/to/your/dump.sql </code></li><li>[ ] rename tables</li><li>[ ] mysql&gt; use MYNEWDB;</li><li>[ ] mysql&gt; show tables;</li><li>[ ] use lisp to transform list of tables</li><li>[ ] use PHPMyAdmin to use new DB and run RENAME TABLE SQL</li></ul>
+]]></content:encoded>
+							<wfw:commentRss>http://thoriumnext.gptix.io/2019/09/13/migrate-wp-to-multisite/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+							</item>
+	</channel>
+</rss>
